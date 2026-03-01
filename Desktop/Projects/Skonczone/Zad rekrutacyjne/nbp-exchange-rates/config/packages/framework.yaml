@@ -1,0 +1,19 @@
+# see https://symfony.com/doc/current/reference/configuration/framework.html
+framework:
+    secret: '%env(APP_SECRET)%'
+    http_method_override: false
+    handle_all_throwables: true
+
+    php_errors:
+        log: true
+
+    http_client:
+        scoped_clients:
+            nbp.client:
+                base_uri: 'https://api.nbp.pl/api/'
+                headers:
+                    Accept: 'application/xml'
+
+when@test:
+    framework:
+        test: true

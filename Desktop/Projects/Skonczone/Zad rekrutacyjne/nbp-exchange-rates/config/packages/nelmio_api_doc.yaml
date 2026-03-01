@@ -1,0 +1,21 @@
+nelmio_api_doc:
+    documentation:
+        info:
+            title: 'NBP Exchange Rates API'
+            description: |
+                REST API do pobierania kursów walut z tabeli C Narodowego Banku Polskiego (NBP).
+                Obsługiwane waluty: EUR, USD, CHF.
+                Dane zawierają kurs kupna, kurs sprzedaży oraz dzienne różnice kursowe.
+            version: '1.0.0'
+        components:
+            securitySchemes:
+                TokenAuth:
+                    type: apiKey
+                    in: header
+                    name: X-TOKEN-SYSTEM
+                    description: 'Token uwierzytelniający wymagany w każdym zapytaniu.'
+        security:
+            - TokenAuth: []
+    areas:
+        path_patterns:
+            - ^/api(?!/doc)
